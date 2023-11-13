@@ -1,6 +1,14 @@
-const Container = () => {
+'use client';
+
+interface ContainerProps {
+    children: React.ReactNode;
+}
+
+const Container: React.FC<ContainerProps> = ({
+    children
+}) => {
     return(
-        <div>Container</div>
+        <div>{children}</div>
     )
 
 }
