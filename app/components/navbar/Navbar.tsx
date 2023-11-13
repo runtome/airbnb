@@ -1,4 +1,6 @@
 import Container from "@/app/components/Container";
+import Logo from "./Logo";
+
 const Navbar = () => {
     return(
         <div className="fixed w-full bg-white z-10 shadow-sm">
@@ -7,7 +9,18 @@ const Navbar = () => {
                 py-4
                 border-b-[1px]">
                     <Container>
-                        any thing 
+                       <div
+                        className="
+                         flex
+                         flex-row
+                         item-center
+                         justify-between
+                         gap-3
+                         md:gap-0
+                         "
+                        >
+                            <Logo />
+                       </div>
                     </Container>
             </div>
         </div>
