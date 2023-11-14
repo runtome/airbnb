@@ -6,7 +6,7 @@ const font = Nunito({ subsets: ['latin'] })
 
 import Navbar from '@/app/components/navbar/Navbar'
 import ClientOnly from './components/ClientOnly'
-import Modal from './components/Modals/Modal'
+import RegisterModal from './components/Modals/RegisterModal'
 
 export const metadata: Metadata = {
   title: 'Airbnb',
@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>        
         <ClientOnly>
-          <Modal disabled actionLabel= 'Submit' title='Hello world ' isOpen/>
+          <RegisterModal />
           <Navbar />
         </ClientOnly>
         {children}
