@@ -7,6 +7,7 @@ const font = Nunito({ subsets: ['latin'] })
 import Navbar from '@/app/components/navbar/Navbar'
 import ClientOnly from './components/ClientOnly'
 import RegisterModal from './components/Modals/RegisterModal'
+import ToasterProvider from './components/providers/ToasterProvider'
 
 export const metadata: Metadata = {
   title: 'Airbnb',
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>        
         <ClientOnly>
+          <ToasterProvider />
           <RegisterModal />
           <Navbar />
         </ClientOnly>
