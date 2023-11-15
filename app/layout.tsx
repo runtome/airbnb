@@ -7,6 +7,7 @@ const font = Nunito({ subsets: ['latin'] })
 import Navbar from '@/app/components/navbar/Navbar'
 import ClientOnly from './components/ClientOnly'
 import RegisterModal from './components/Modals/RegisterModal'
+import LoginModal from './components/Modals/LoginModal'
 import ToasterProvider from './components/providers/ToasterProvider'
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body className={font.className}>        
         <ClientOnly>
           <ToasterProvider />
+          <LoginModal />
           <RegisterModal />
           <Navbar />
         </ClientOnly>
