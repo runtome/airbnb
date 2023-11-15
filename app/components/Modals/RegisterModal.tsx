@@ -65,7 +65,7 @@ const RegisterModel = () => {
              required
             />
             <Input 
-             id="Name"
+             id="name"
              label="Name"
              disabled={isLoading}
              register={register}
