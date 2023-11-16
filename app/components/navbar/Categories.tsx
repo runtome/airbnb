@@ -8,13 +8,11 @@ import {GiWindmill ,
     GiForestCamp,
     GiCactus,
     GiBarn,
-
-
 } from 'react-icons/gi'
 import {FaSkiing} from 'react-icons/fa'
 import {MdOutlineVilla} from 'react-icons/md'
 import{TbMountain , TbPool} from 'react-icons/tb'
-// import { IoDiamond } from 'react-icons/io'
+import { IoDiamond } from 'react-icons/io5'
 import CategoriesBox from "../CategoryBox"
 import { BsSnow } from 'react-icons/bs'
 import { useSearchParams , usePathname} from "next/navigation"
@@ -90,19 +88,19 @@ export const categories = [
       icon: GiBarn,
       description: 'This property is in a barn!'
     },
-    // {
-    //   label: 'Lux',
-    //   icon: IoDiamond,
-    //   description: 'This property is brand new and luxurious!'
-    // }
+    {
+      label: 'Lux',
+      icon: IoDiamond,
+      description: 'This property is brand new and luxurious!'
+    }
   ]
 
 const Categories = () => {
-    const params = useSearchParams();
-    const category = params?.get('category');
-    const pathname = usePathname();
+    const params = useSearchParams(); // Add at make UI2
+    const category = params?.get('category'); // Add at make UI2 
+    const pathname = usePathname(); // Add at make UI2 
     
-    const isMainPage = pathname === '/';
+    const isMainPage = pathname === '/';// Add at make UI2 
 
     if (!isMainPage){
       return null;
@@ -124,7 +122,7 @@ const Categories = () => {
                     <CategoriesBox 
                      key = {item.label}
                      label= {item.label}
-                     description ={item.description}
+                     selected ={ category === item.label } 
                      icon = {item.icon}
                     />
                 ))}
