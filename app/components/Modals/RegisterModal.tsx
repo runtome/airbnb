@@ -11,15 +11,19 @@ import {
 } from 'react-hook-form'
 
 import useRegisterModal from "@/app/hooks/useRegisterModal";
+import useLoginModal from "@/app/hooks/useLoginModal";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
 import toast from "react-hot-toast";
 import Button from "../Button";
 import { signIn } from "next-auth/react";
+import LoginModal from "./LoginModal";
 
 const RegisterModel = () => {
-    const registermModal = useRegisterModal();
+    const registerModal = useRegisterModal();
+    const loginModal = useLoginModal();
+
     const [isLoading , setIsLoading] = useState(false)
 
     const {
@@ -41,7 +45,7 @@ const RegisterModel = () => {
 
         axios.post('/api/register', data)
             .then(()=>{
-                registermModal.onClose();
+                registerModal.onClose();
             })
             .catch((error)=> {
                toast.error('Something went wrong');
@@ -50,6 +54,11 @@ const RegisterModel = () => {
                 setIsLoading(false)
             })
     }
+
+    const toggle = useCallback(() => { // Add toggle
+        registerModal.onClose(); // Add toggle
+        loginModal.onOpen(); // Add toggle
+      }, [loginModal, LoginModal]) // Add toggle
 
     const bodyContent = (
         <div className="flex flex-col  gap-4">
@@ -113,7 +122,7 @@ const RegisterModel = () => {
                         Already have an account?
                     </div>
                     <div
-                     onClick={registermModal.onClose}
+                     onClick={toggle}
                      className="
                       text-neutral-800
                       cursor-pointer
@@ -132,10 +141,10 @@ const RegisterModel = () => {
     return(
         <Modal 
          disabled={isLoading}
-         isOpen={registermModal.isOpen}
+         isOpen={registerModal.isOpen}
          title="Register"
          actionLabel="Continue"
-         onClose={registermModal.onClose}
+         onClose={registerModal.onClose}
          onSubmit={handleSubmit(onSubmit)}
          body={bodyContent}
          footer={footerContent}
