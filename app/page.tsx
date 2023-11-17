@@ -1,11 +1,12 @@
+import getListings from "./actions/getListing";
 import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
 
-export default function Home() {
-  const isEmpty = true;
+export default async function Home() {
+  const listings = await getListings();
 
-  if (isEmpty){
+  if (listings.length === 0){
     return(
       <ClientOnly>
         <EmptyState showReset />
@@ -29,7 +30,11 @@ export default function Home() {
           gap-8
           "
         >
-          <div>My future list</div>
+          {listings.map((listing:any)=> {
+            return(
+              <div>{listing.title}</div>
+            )
+          })}
         </div>
       </Container>
     </ClientOnly>
