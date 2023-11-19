@@ -6,6 +6,7 @@ import { useMemo } from "react";
 import { categories } from "@/app/components/navbar/Categories";
 import Container from "@/app/components/Container";
 import ListingHead from "@/app/components/listings/ListingHead";
+import ListingInfo from "@/app/components/listings/ListingInfo";
 
 interface ListingClientprops{
     reservation?: Reservation[];
@@ -41,6 +42,15 @@ const ListingClient: React.FC<ListingClientprops> = ({
                     currentUser={currentUser}
                 />
                 </div>
+                <ListingInfo 
+                 user={listing.user}
+                 category={category}
+                 description= {listing.description}
+                 guestCount={listing.guestCount}
+                 bathroomCount={listing.bathroomCount}
+                 locationValue={listing.locationValue}
+                />
+
             </div>
         </Container>
     )
