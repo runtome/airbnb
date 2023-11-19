@@ -1,4 +1,6 @@
 'use client' ;
+
+import { useRouter } from 'next/navigation';
 import { AiOutlineMenu } from 'react-icons/ai'
 import Avatar from '../Avatar';
 import { useCallback, useState } from 'react';
@@ -16,6 +18,7 @@ interface UserMenuProps{
 const UserMenu:React.FC<UserMenuProps> = ({
     currentUser
 }) =>{
+    const router = useRouter();
     const registermModal = useRegisterModal()
     const loginModal = useLoginModal()
     const rentModal = useRentModal()
@@ -95,7 +98,7 @@ const UserMenu:React.FC<UserMenuProps> = ({
                             <>
                             <MenuItem 
                               label="My trips" 
-                              onClick={() =>{}}
+                              onClick={() =>router.push("/trips")}
                             />
                             <MenuItem 
                               label="My favorites" 
