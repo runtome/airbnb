@@ -5,7 +5,11 @@ import { SafeUser } from "@/app/types";
 import { IconType } from "react-icons";
 import Avatar from "../Avatar";
 import ListingCategory from "./ListingCategory";
-import Map from "../Map";
+import dynamic from "next/dynamic";
+
+const Map = dynamic(() => import ('../Map'), {
+    ssr: false
+});
 
 interface ListingInfoProps{
     user: SafeUser,
