@@ -21,6 +21,9 @@ const Home = async({ searchParams}:HomePeops) => {
       </ClientOnly>
     )
   }
+
+    // throw new Error('Something went wrong') // for testing only 
+
   return (
     <ClientOnly>
       <Container>
