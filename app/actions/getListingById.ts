@@ -26,9 +26,13 @@ export default async function getListingById(
         return {
             ...listing, 
             createdAt: listing.user.createdAt.toString(),
-            updatedAt: listing.user.updatedAt.toString(),
-            emailVerfied:
-             listing.user.emailVerified?.toString() || null,
+            user: {
+                ...listing.user,
+                createdAt: listing.user.createdAt.toString(),
+                updatedAt: listing.user.updatedAt.toString(),
+                emailVerified: 
+                  listing.user.emailVerified?.toString() || null,
+              }
         };
 
     } catch (error:any){
