@@ -24,6 +24,8 @@ const Home = async({ searchParams}:HomePeops) => {
   }
 
     // throw new Error('Something went wrong') // for testing only 
+    //New b
+    //Test New B
 
   return (
     <ClientOnly>
